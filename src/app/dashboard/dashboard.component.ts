@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ApiService } from '../api.service';
+import { DefaultService } from 'api/api';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,9 +8,18 @@ import { ApiService } from '../api.service';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor(private apiService: ApiService) { }
+  constructor(private defaultService: DefaultService) { }
 
   ngOnInit(): void {
-    this.apiService.getPosts().subscribe(console.log);
+    this.defaultService.getPosts().subscribe(console.log);
+    this.defaultService.getPostsPostId(1).subscribe(console.log);
+
+    this.defaultService.getAlbums().subscribe(console.log);
+    this.defaultService.getAlbumsAlbumId(1).subscribe(console.log); 
+
+    this.defaultService.getPhotos().subscribe(console.log);
+    this.defaultService.getPhotosPhotoId(1).subscribe(console.log);
+
+    this.defaultService.getUsersUserId(1).subscribe(console.log);
   }
 }

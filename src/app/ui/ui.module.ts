@@ -1,16 +1,20 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { CardComponent } from './card/card.component';
+import { CdkTableModule } from '@angular/cdk/table'; 
 
+import { CardComponent } from './card/card.component';
+import { TableComponent } from './table/table.component';
 
 
 @NgModule({
   declarations: [
-    CardComponent
+    CardComponent,
+    TableComponent
   ],
-  exports: [CardComponent],
+  exports: [CardComponent, TableComponent],
   imports: [
-    CommonModule
+    CdkTableModule,
+    CommonModule,
   ]
 })
 export class UiModule { }
